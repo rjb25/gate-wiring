@@ -115,7 +115,7 @@
   [variables]
   (doseq [[variable value] variables] (printf "%-10s" value)))
 ;;Driver
-(defn -main
+(defn driver 
   [input-file]
   (let [wiring-groups (get-wiring-groups input-file)
         wiring-map (get-wiring-map wiring-groups)
@@ -138,3 +138,8 @@
                   (println))
              variables-list
              outputs-list))))
+
+;;Main for getting input file or running the default file
+(defn -main
+  ([] (driver "demo.txt"))
+  ([input-file] (driver input-file)))
